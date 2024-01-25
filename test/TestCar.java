@@ -116,9 +116,7 @@ public class testCar{
     @Test
     public void testGasWithinBounds() {
         testCar.startEngine();
-        //double speedBefore =
-        //testCar.gas(0.5);
-        //double speedAfter =
+        assertThrows(IllegalArgumentException.class, () -> testCar.brake(1.5));
     }
     @Test
     public void testBrakelowerSpeed() {

@@ -52,16 +52,16 @@ public class testSaab {
     @Test
     public void testGas() {
         testSaab.startEngine();
-        double expectedSpeed = testSaab.getCurrentSpeed() + testSaab.speedFactor() * 2;
-        testSaab.gas(2);
+        double expectedSpeed = testSaab.getCurrentSpeed() + testSaab.speedFactor() * 0.8;
+        testSaab.gas(0.8);
         assertEquals(testSaab.currentSpeed, expectedSpeed);
     }
 
     @Test
     public void testBrake() {
         testSaab.startEngine();
-        double expectedSpeed = testSaab.getCurrentSpeed() - testSaab.speedFactor() * 2;
-        testSaab.brake(2);
+        double expectedSpeed = testSaab.getCurrentSpeed() - testSaab.speedFactor() * 0.6;
+        testSaab.brake(0.6);
         assertEquals(testSaab.currentSpeed, expectedSpeed);
     }
 }
