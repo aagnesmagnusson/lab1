@@ -21,9 +21,20 @@ public abstract class Car implements Movable {
         stopEngine();
     }
 
+    //LAGT TILL
+    protected void setNrDoors(int nrDrs){
+        nrDoors = nrDrs;
+    }
+
     public int getNrDoors(){
         return nrDoors;
     }
+
+    //LAGT TILL
+    protected void setEnginePower(double enginePwr){
+        enginePower = enginePwr;
+    }
+
     public double getEnginePower(){
         return enginePower;
     }
