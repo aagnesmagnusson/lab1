@@ -36,7 +36,7 @@ public abstract class Car implements Movable {
         return color;
     }
 
-    private void setColor(Color clr){
+    protected void setColor(Color clr){
         color = clr;
     }
 
@@ -62,16 +62,16 @@ public abstract class Car implements Movable {
         return direction;
     }
 
-    public void setXPos(double x) {
+    protected void setXPos(double x) {
         xPos = x;
     }
 
-    public void setYPos(double y) {
+    protected void setYPos(double y) {
         yPos = y;
     }
 
     public void setDirection(double dir) {
-        direction = dir;
+        direction = (dir % (2*Math.PI) + 2*Math.PI)%(2*Math.PI);
     }
 
     public void move() {
@@ -80,11 +80,11 @@ public abstract class Car implements Movable {
     }
 
     public void turnLeft() {
-        direction += Math.PI/2;
+        direction = (direction + Math.PI /2) % (2*Math.PI);
     }
 
     public void turnRight() {
-        direction -= Math.PI/2;
+        direction = (direction - Math.PI/2 + 2*Math.PI) % (2*Math.PI);
     }
 
     protected abstract void incrementSpeed(double amount);

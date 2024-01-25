@@ -3,7 +3,7 @@ import java.awt.*;
 public class Saab95 extends Car {
 
     // Allt nedan kan vara private
-    private boolean turboOn;
+    protected boolean turboOn;
 
     // Nedan metod är konstruktorn, brukar vara public för att kunna skapa objekt av klassen
     public Saab95(int nrDoors, double enginePower, Color color, String modelName, boolean turboOn) {
