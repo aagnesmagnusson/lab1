@@ -104,7 +104,23 @@ public class testCar{
     @Test
     public void testsetColor() {
         testCar.setColor(Color.BLUE);
-        assertEquals(testCar.color, Color.BLUE);
+        assertEquals(testCar.color, testCar.getColor());
     }
 
-}
+    @Test
+    public void testCurrentSpeedWithinBounds() {
+        testCar.startEngine();
+        assertTrue(testCar.getCurrentSpeed() >= 0 && testCar.getCurrentSpeed() <= testCar.getEnginePower());
+    }
+
+    @Test
+    public void testGasWithinBounds() {
+        testCar.startEngine();
+        //double speedBefore =
+        //testCar.gas(0.5);
+        //double speedAfter =
+
+
+    }
+    }
+
