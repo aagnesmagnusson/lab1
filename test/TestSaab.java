@@ -65,3 +65,6 @@ public class testSaab {
         assertEquals(testSaab.currentSpeed, expectedSpeed);
     }
 }
+
+
+//hej
