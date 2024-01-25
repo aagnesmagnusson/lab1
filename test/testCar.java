@@ -119,8 +119,21 @@ public class testCar{
         //double speedBefore =
         //testCar.gas(0.5);
         //double speedAfter =
-
-
+    }
+    @Test
+    public void testBrakelowerSpeed() {
+        testCar.startEngine();
+        testCar.gas(1);
+        double firstSpeed = testCar.getCurrentSpeed();
+        testCar.brake(0.5);
+        assertTrue(firstSpeed > testCar.currentSpeed);
+    }
+    @Test
+    public void testGasincrementSpeed() {
+        testCar.startEngine();
+        double firstSpeed = testCar.getCurrentSpeed();
+        testCar.gas(0.5);
+        assertTrue(firstSpeed < testCar.currentSpeed);
     }
     }
 
