@@ -15,6 +15,9 @@ public abstract class Car implements Movable {
         this.color = color;
         this.enginePower = enginePower;
         this.modelName = modelName;
+        this.xPos = 0;
+        this.yPos = 0;
+        this.direction = Math.PI/2;
         stopEngine();
     }
 
@@ -84,4 +87,15 @@ public abstract class Car implements Movable {
         direction -= Math.PI/2;
     }
 
+    protected abstract void incrementSpeed(double amount);
+
+    protected abstract void decrementSpeed(double amount);
+
+    public void gas(double amount){
+        incrementSpeed(amount);
+    }
+
+    public void brake(double amount){
+        decrementSpeed(amount);
+    }
 }

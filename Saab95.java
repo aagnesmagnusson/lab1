@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class Saab95 extends Car{
+public class Saab95 extends Car {
 
     // Allt nedan kan vara private
     private boolean turboOn;
@@ -12,38 +12,26 @@ public class Saab95 extends Car{
     }
 
 
-    public void setTurboOn(){
+    public void setTurboOn() {
         turboOn = true;
     }
 
-    public void setTurboOff(){
+    public void setTurboOff() {
         turboOn = false;
     }
 
-    protected double speedFactor(){
+    protected double speedFactor() {
         double turbo = 1;
-        if(turboOn) turbo = 1.3;
+        if (turboOn) turbo = 1.3;
         return enginePower * 0.01 * turbo;
     }
 
     // Dessa två kan vara private eftersom de används av gas och brake
-    private void incrementSpeed(double amount){
+    protected void incrementSpeed(double amount) {
         currentSpeed = getCurrentSpeed() + speedFactor() * amount;
     }
 
-    private void decrementSpeed(double amount){
+    protected void decrementSpeed(double amount) {
         currentSpeed = getCurrentSpeed() - speedFactor() * amount;
-    }
-
-
-    // Nedan två kan va public, används direkt
-    // TODO fix this method according to lab pm
-    public void gas(double amount){
-        incrementSpeed(amount);
-    }
-
-    // TODO fix this method according to lab pm
-    public void brake(double amount){
-        decrementSpeed(amount);
     }
 }
