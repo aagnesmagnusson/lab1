@@ -94,11 +94,19 @@ public abstract class Car implements Movable {
 
     protected abstract void decrementSpeed(double amount);
 
-    public void gas(double amount){
-        incrementSpeed(amount);
+    public void gas(double amount) {
+        if (amount >= 0 && amount <=1){
+            incrementSpeed(amount);
+        } else {
+            throw new IllegalArgumentException("Argument must be between 0 and 1");
+        }
     }
 
     public void brake(double amount){
-        decrementSpeed(amount);
+        if (amount >= 0 && amount <=1){
+            decrementSpeed(amount);
+        } else {
+            throw new IllegalArgumentException("Argument must be between 0 and 1");
+        }
     }
 }

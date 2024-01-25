@@ -6,7 +6,7 @@ import java.awt.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-public class testSaab {
+public class TestSaab {
     private Saab95 testSaab;
 
     @BeforeEach
@@ -36,16 +36,16 @@ public class testSaab {
     @Test
     public void testincrementSpeed() {
         testSaab.startEngine();
-        double expectedSpeed = testSaab.getCurrentSpeed() + testSaab.speedFactor() * 3;
-        testSaab.incrementSpeed(3);
+        double expectedSpeed = testSaab.getCurrentSpeed() + testSaab.speedFactor() * 0.8;
+        testSaab.incrementSpeed(0.8);
         assertEquals(testSaab.currentSpeed, expectedSpeed);
     }
 
     @Test
     public void testdecrementSpeed() {
         testSaab.startEngine();
-        double expectedSpeed = testSaab.getCurrentSpeed() - testSaab.speedFactor() * 3;
-        testSaab.decrementSpeed(3);
+        double expectedSpeed = testSaab.getCurrentSpeed() - testSaab.speedFactor() * 0.6;
+        testSaab.decrementSpeed(0.6);
         assertEquals(testSaab.currentSpeed, expectedSpeed);
     }
 

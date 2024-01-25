@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import javax.annotation.processing.SupportedAnnotationTypes;
 import java.awt.*;
 
-public class testCar{
+public class TestCar{
     private Car testCar;
 
     @BeforeEach

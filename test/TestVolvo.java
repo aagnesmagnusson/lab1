@@ -5,7 +5,7 @@ import java.awt.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class testVolvo {
+public class TestVolvo {
 
     private Volvo240 testVolvo;
 
