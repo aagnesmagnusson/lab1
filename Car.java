@@ -1,47 +1,115 @@
 import java.awt.*;
 
-public class Car {
-    public int nrDoors; // Number of doors on the car
-    public double enginePower; // Engine power of the car
-    public double currentSpeed; // The current speed of the car
-    public Color color; // Color of the car
-    public String modelName; // The car model name
+public abstract class Car implements Movable {
+    private int nrDoors; // Number of doors on the car
+    private double enginePower; // Engine power of the car
+    protected double currentSpeed; // The current speed of the car
+    private Color color; // Color of the car
+    private String modelName; // The car model name
+    private double xPos; // x-position of the car
+    private double yPos; // y-position of the car
+    private double direction; // direction of the car in radians
 
     public Car(int nrDoors, double enginePower, Color color, String modelName) {
         this.nrDoors = nrDoors;
         this.color = color;
         this.enginePower = enginePower;
         this.modelName = modelName;
+        this.xPos = 0;
+        this.yPos = 0;
+        this.direction = Math.PI/2;
         stopEngine();
     }
 
-    // Nedan fyra kan vara public, getter metoder med info som användaren kan vilja ha
-    public int getNrDoors(){
+
+    protected int getNrDoors(){
         return nrDoors;
     }
-    public double getEnginePower(){
+
+    protected double getEnginePower(){
         return enginePower;
     }
 
-    public double getCurrentSpeed(){
+    protected double getCurrentSpeed(){
         return currentSpeed;
     }
 
-    public Color getColor(){
+    protected Color getColor(){
         return color;
     }
 
-    // Ska användaren kunna ändra färgen på bilen?
-    public void setColor(Color clr){
+    protected void setColor(Color clr){
         color = clr;
     }
 
-    // Nedan fyra kan vara public, används direkt av användaren
-    public void startEngine(){
+    protected void startEngine(){
         currentSpeed = 0.1;
     }
 
-    public void stopEngine(){
+    protected void stopEngine(){
         currentSpeed = 0;
+    }
+
+    protected abstract double speedFactor();
+
+    protected double getXPos() {
+        return xPos;
+    }
+
+    protected double getYPos() {
+        return yPos;
+    }
+
+    protected double getDirection() {
+        return direction;
+    }
+
+    protected void setXPos(double x) {
+        xPos = x;
+    }
+
+    protected void setYPos(double y) {
+        yPos = y;
+    }
+
+    protected void setDirection(double dir) {
+        direction = (dir % (2*Math.PI) + 2*Math.PI)%(2*Math.PI);
+    }
+
+    public void move() {
+        xPos += currentSpeed * Math.cos(direction);
+        yPos += currentSpeed * Math.sin(direction);
+    }
+
+    public void turnLeft() {
+        direction = (direction + Math.PI /2) % (2*Math.PI);
+    }
+
+    public void turnRight() {
+        direction = (direction - Math.PI/2 + 2*Math.PI) % (2*Math.PI);
+    }
+
+    protected void incrementSpeed(double amount){
+        currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, getEnginePower());
+    };
+
+    protected void decrementSpeed(double amount){
+        currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
+    };
+
+    protected void gas(double amount) {
+        if (amount >= 0 && amount <=1){
+            incrementSpeed(amount);
+        } else {
+            throw new IllegalArgumentException("Argument must be between 0 and 1");
+        }
+    }
+
+    protected void brake(double amount){
+        if (amount >= 0 && amount <=1){
+            decrementSpeed(amount);
+        } else {
+            throw new IllegalArgumentException("Argument must be between 0 and 1");
+        }
     }
 }
