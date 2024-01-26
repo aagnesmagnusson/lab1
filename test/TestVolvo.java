@@ -16,15 +16,15 @@ public class TestVolvo {
 
     @Test
     public void testspeedFactor() {
-        assertEquals(testVolvo.speedFactor(), testVolvo.enginePower * 0.01 * 1.25);
+        assertEquals(testVolvo.speedFactor(), testVolvo.getEnginePower() * 0.01 * 1.25);
     }
 
     @Test
     public void testincrementSpeed() {
         testVolvo.startEngine();
-        double expectedSpeed = Math.min(testVolvo.getCurrentSpeed() + testVolvo.speedFactor() * 0.8, testVolvo.enginePower);
+        double expectedSpeed = Math.min(testVolvo.getCurrentSpeed() + testVolvo.speedFactor() * 0.8, testVolvo.getEnginePower());
         testVolvo.incrementSpeed(0.8);
-        assertEquals(testVolvo.currentSpeed, expectedSpeed);
+        assertEquals(testVolvo.getCurrentSpeed(), expectedSpeed);
     }
 
     @Test
@@ -32,15 +32,15 @@ public class TestVolvo {
         testVolvo.startEngine();
         double expectedSpeed = Math.max(testVolvo.getCurrentSpeed() - testVolvo.speedFactor() * 0.3, 0);
         testVolvo.decrementSpeed(0.3);
-        assertEquals(testVolvo.currentSpeed, expectedSpeed);
+        assertEquals(testVolvo.getCurrentSpeed(), expectedSpeed);
     }
 
     @Test
     public void testGas() {
         testVolvo.startEngine();
-        double expectedSpeed = Math.min(testVolvo.getCurrentSpeed() + testVolvo.speedFactor() * 0.3, testVolvo.enginePower);
+        double expectedSpeed = Math.min(testVolvo.getCurrentSpeed() + testVolvo.speedFactor() * 0.3, testVolvo.getEnginePower());
         testVolvo.gas(0.3);
-        assertEquals(testVolvo.currentSpeed, expectedSpeed);
+        assertEquals(testVolvo.getCurrentSpeed(), expectedSpeed);
     }
 
     @Test
@@ -48,6 +48,6 @@ public class TestVolvo {
         testVolvo.startEngine();
         double expectedSpeed = Math.max(testVolvo.getCurrentSpeed() - testVolvo.speedFactor() * 0.7, 0);
         testVolvo.brake(0.7);
-        assertEquals(testVolvo.currentSpeed, expectedSpeed);
+        assertEquals(testVolvo.getCurrentSpeed(), expectedSpeed);
     }
 }

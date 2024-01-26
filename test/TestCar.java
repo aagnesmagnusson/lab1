@@ -17,14 +17,14 @@ public class TestCar{
     @Test
     public void testStartEngine(){
         testCar.startEngine();
-        assertEquals(testCar.currentSpeed, 0.1);
+        assertEquals(testCar.getCurrentSpeed(), 0.1);
     }
 
     @Test
     public void testStopEngine() {
         testCar.startEngine();
         testCar.stopEngine();
-        assertEquals(testCar.currentSpeed, 0.0);
+        assertEquals(testCar.getCurrentSpeed(), 0.0);
     }
 
     @Test
@@ -50,61 +50,62 @@ public class TestCar{
 
     @Test
     public void testGetNrDoors() {
-        assertEquals(testCar.getNrDoors(), testCar.nrDoors);
+        assertEquals(testCar.getNrDoors(), 4);
     }
 
 
     @Test
     public void testgetEnginePower() {
-        assertEquals(testCar.getEnginePower(), testCar.enginePower);
+        assertEquals(testCar.getEnginePower(), 2);
     }
 
     @Test
     public void testgetCurrentSpeed() {
-        assertEquals(testCar.getCurrentSpeed(), testCar.currentSpeed);
+        testCar.startEngine();
+        assertEquals(testCar.getCurrentSpeed(), 0.1);
     }
 
     @Test
     public void testgetColor() {
-        assertEquals(testCar.getColor(), testCar.color);
+        assertEquals(testCar.getColor(), Color.BLUE);
     }
 
     @Test
     public void testgetXpos() {
-        assertEquals(testCar.getXPos(), testCar.xPos);
+        assertEquals(testCar.getXPos(), 0);
     }
 
     @Test
     public void testgetYPos() {
-        assertEquals(testCar.getYPos(), testCar.yPos);
+        assertEquals(testCar.getYPos(), 0);
     }
 
     @Test
     public void testgetDirection() {
-        assertEquals(testCar.getDirection(), testCar.direction);
+        assertEquals(testCar.getDirection(), Math.PI/2);
     }
 
     @Test
     public void testsetDirection() {
         testCar.setDirection(Math.PI);
-        assertEquals(testCar.direction, Math.PI);
+        assertEquals(testCar.getDirection(), Math.PI);
     }
 
     @Test
     public void testsetXpos() {
         testCar.setXPos(0);
-        assertEquals(testCar.xPos, 0);
+        assertEquals(testCar.getXPos(), 0);
     }
     @Test
     public void testsetYpos() {
         testCar.setYPos(0);
-        assertEquals(testCar.yPos, 0);
+        assertEquals(testCar.getYPos(), 0);
     }
 
     @Test
     public void testsetColor() {
         testCar.setColor(Color.BLUE);
-        assertEquals(testCar.color, testCar.getColor());
+        assertEquals(testCar.getColor(), Color.BLUE);
     }
 
     @Test
@@ -124,15 +125,13 @@ public class TestCar{
         testCar.gas(1);
         double firstSpeed = testCar.getCurrentSpeed();
         testCar.brake(0.5);
-        assertTrue(firstSpeed > testCar.currentSpeed);
+        assertTrue(firstSpeed > testCar.getCurrentSpeed());
     }
     @Test
     public void testGasincrementSpeed() {
         testCar.startEngine();
         double firstSpeed = testCar.getCurrentSpeed();
         testCar.gas(0.5);
-        assertTrue(firstSpeed < testCar.currentSpeed);
+        assertTrue(firstSpeed < testCar.getCurrentSpeed());
     }
     }
-
-    //hej

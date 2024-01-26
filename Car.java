@@ -1,14 +1,14 @@
 import java.awt.*;
 
 public abstract class Car implements Movable {
-    protected int nrDoors; // Number of doors on the car
-    protected double enginePower; // Engine power of the car
+    private int nrDoors; // Number of doors on the car
+    private double enginePower; // Engine power of the car
     protected double currentSpeed; // The current speed of the car
-    protected Color color; // Color of the car
-    public String modelName; // The car model name
-    protected double xPos; // x-position of the car
-    protected double yPos; // y-position of the car
-    protected double direction; // direction of the car in radians
+    private Color color; // Color of the car
+    private String modelName; // The car model name
+    private double xPos; // x-position of the car
+    private double yPos; // y-position of the car
+    private double direction; // direction of the car in radians
 
     public Car(int nrDoors, double enginePower, Color color, String modelName) {
         this.nrDoors = nrDoors;
@@ -73,7 +73,7 @@ public abstract class Car implements Movable {
         yPos = y;
     }
 
-    public void setDirection(double dir) {
+    protected void setDirection(double dir) {
         direction = (dir % (2*Math.PI) + 2*Math.PI)%(2*Math.PI);
     }
 

@@ -30,7 +30,7 @@ public class TestSaab {
 
     @Test
     public void testspeedFactor() {
-        assertEquals(testSaab.speedFactor(), testSaab.enginePower*0.01*1.3);
+        assertEquals(testSaab.speedFactor(), testSaab.getEnginePower()*0.01*1.3);
     }
 
     @Test
@@ -38,7 +38,7 @@ public class TestSaab {
         testSaab.startEngine();
         double expectedSpeed = testSaab.getCurrentSpeed() + testSaab.speedFactor() * 0.8;
         testSaab.incrementSpeed(0.8);
-        assertEquals(testSaab.currentSpeed, expectedSpeed);
+        assertEquals(testSaab.getCurrentSpeed(), expectedSpeed);
     }
 
     @Test
@@ -46,7 +46,7 @@ public class TestSaab {
         testSaab.startEngine();
         double expectedSpeed = testSaab.getCurrentSpeed() - testSaab.speedFactor() * 0.6;
         testSaab.decrementSpeed(0.6);
-        assertEquals(testSaab.currentSpeed, expectedSpeed);
+        assertEquals(testSaab.getCurrentSpeed(), expectedSpeed);
     }
 
     @Test
@@ -54,7 +54,7 @@ public class TestSaab {
         testSaab.startEngine();
         double expectedSpeed = testSaab.getCurrentSpeed() + testSaab.speedFactor() * 0.8;
         testSaab.gas(0.8);
-        assertEquals(testSaab.currentSpeed, expectedSpeed);
+        assertEquals(testSaab.getCurrentSpeed(), expectedSpeed);
     }
 
     @Test
@@ -62,7 +62,7 @@ public class TestSaab {
         testSaab.startEngine();
         double expectedSpeed = testSaab.getCurrentSpeed() - testSaab.speedFactor() * 0.6;
         testSaab.brake(0.6);
-        assertEquals(testSaab.currentSpeed, expectedSpeed);
+        assertEquals(testSaab.getCurrentSpeed(), expectedSpeed);
     }
 }
 
