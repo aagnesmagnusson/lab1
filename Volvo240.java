@@ -2,7 +2,7 @@ import java.awt.*;
 
 public class Volvo240 extends Car{
 
-    private final static double trimFactor = 1.25;
+    private final static double trimFactor = 1.25; //klassattribut - delas av alla objekt i klassen
 
     public Volvo240(int nrDoors, double enginePower, Color color, String modelName) {
         super(nrDoors, enginePower, color, modelName);
