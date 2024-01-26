@@ -22,20 +22,19 @@ public abstract class Car implements Movable {
     }
 
 
-    public int getNrDoors(){
+    protected int getNrDoors(){
         return nrDoors;
     }
 
-
-    public double getEnginePower(){
+    protected double getEnginePower(){
         return enginePower;
     }
 
-    public double getCurrentSpeed(){
+    protected double getCurrentSpeed(){
         return currentSpeed;
     }
 
-    public Color getColor(){
+    protected Color getColor(){
         return color;
     }
 
@@ -43,25 +42,25 @@ public abstract class Car implements Movable {
         color = clr;
     }
 
-    public void startEngine(){
+    protected void startEngine(){
         currentSpeed = 0.1;
     }
 
-    public void stopEngine(){
+    protected void stopEngine(){
         currentSpeed = 0;
     }
 
     protected abstract double speedFactor();
 
-    public double getXPos() {
+    protected double getXPos() {
         return xPos;
     }
 
-    public double getYPos() {
+    protected double getYPos() {
         return yPos;
     }
 
-    public double getDirection() {
+    protected double getDirection() {
         return direction;
     }
 
@@ -90,11 +89,15 @@ public abstract class Car implements Movable {
         direction = (direction - Math.PI/2 + 2*Math.PI) % (2*Math.PI);
     }
 
-    protected abstract void incrementSpeed(double amount);
+    protected void incrementSpeed(double amount){
+        currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, getEnginePower());
+    };
 
-    protected abstract void decrementSpeed(double amount);
+    protected void decrementSpeed(double amount){
+        currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
+    };
 
-    public void gas(double amount) {
+    protected void gas(double amount) {
         if (amount >= 0 && amount <=1){
             incrementSpeed(amount);
         } else {
@@ -102,7 +105,7 @@ public abstract class Car implements Movable {
         }
     }
 
-    public void brake(double amount){
+    protected void brake(double amount){
         if (amount >= 0 && amount <=1){
             decrementSpeed(amount);
         } else {
