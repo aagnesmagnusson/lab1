@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public abstract class Car implements Movable {
+public abstract class Vehicle implements Movable {
     private int nrDoors; // Number of doors on the car
     private double enginePower; // Engine power of the car
     protected double currentSpeed; // The current speed of the car
@@ -10,7 +10,7 @@ public abstract class Car implements Movable {
     private double yPos; // y-position of the car
     private double direction; // direction of the car in radians
 
-    public Car(int nrDoors, double enginePower, Color color, String modelName) {
+    public Vehicle(int nrDoors, double enginePower, Color color, String modelName) {
         this.nrDoors = nrDoors;
         this.color = color;
         this.enginePower = enginePower;
