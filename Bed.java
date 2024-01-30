@@ -4,9 +4,12 @@ public class Bed implements HasBed {
     //public int angle;
     public boolean raised;
 
-    public void setRaised(boolean raised){this.raised = raised;};
+    public void raise(boolean raised){this.raised = true;};
+    public void lower(boolean raised){this.raised = false;}
 
     public boolean getRaised(){return this.raised;};
 
 
 }
+
+//hej

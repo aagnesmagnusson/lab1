@@ -1,7 +1,7 @@
 import java.awt.*;
 
 public class Scania extends Truck{
-    private final Bed bed = new Bed();  // Composition
+    private Bed bed = new ScaniaBed();
     public int angle;
 
     public Scania(int nrDoors, double enginePower, Color color, String modelName) {
@@ -24,3 +24,5 @@ public class Scania extends Truck{
         this.angle = angle;}
 
 }
+
+//hej

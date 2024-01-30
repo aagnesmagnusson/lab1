@@ -1,7 +1,7 @@
 import java.awt.*;
 
 public class CarTransport extends Truck implements Loadable {
-    private final Bed bed = new Bed();  // Composition
+    private Bed bed = new CarTransportBed();  // Composition
 
     private final CarStorage storage = new CarStorage();  // Composition
 
@@ -10,3 +10,5 @@ public class CarTransport extends Truck implements Loadable {
     }
 
 }
+
+//hej

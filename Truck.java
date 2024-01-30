@@ -2,7 +2,7 @@ import java.awt.*;
 
 public class Truck extends Vehicle implements HasBed {
 
-    private final Bed bed = new Bed();  // Composition
+    private Bed bed = new Bed();  // Composition
     public boolean raised;
 
     public Truck(int nrDoors, double enginePower, Color color, String modelName) {
@@ -17,3 +17,5 @@ public class Truck extends Vehicle implements HasBed {
 
     public boolean getRaised(){return this.raised;}
 }
+
+//hej
