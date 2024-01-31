@@ -1,4 +1,5 @@
-public interface Loadable {
-}
+public interface Loadable<T extends Vehicle> {
+    void load(T vehicle);
 
-//hej
+    T unload();
+}

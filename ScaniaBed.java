@@ -1,25 +1,36 @@
-public class ScaniaBed extends Bed{
+public class ScaniaBed {
 
     public int angle;
 
-    public void raise(int angle){
-        if (angle > 0 && angle <70) //och kolla att vinkel är större än
-            this.angle = angle;
+    public ScaniaBed() {
+        super();
+        this.angle = 0;
+    }
+
+
+    public void raise() {
+        if (this.angle <= 60) //och kolla att vinkel är större än
+            this.angle += 10;
         else {
-            throw new IllegalArgumentException("Argument must be between 0 and 70");
+            this.angle = 70;
         }
     }
 
-    public void lower(int angle) {
-        if (angle > 0 && angle < 70)
-            this.angle = angle;
+
+    public void lower() {
+        if (this.angle >= 10)
+            this.angle -= 10;
         else {
-            throw new IllegalArgumentException("Argument must be between 0 and 70");
+            this.angle = 0;
         }
-
-        public int getAngle() {
-            return this.angle;
-        }
-        ;
-
     }
+
+    public int getAngle(){return this.angle;}
+
+    public void setAngle(int angle){
+        if (angle >= 0 && angle <= 70)
+            this.angle = angle;
+        else
+            throw new IllegalArgumentException("Angle must be between 0 and 70");
+    };
+}

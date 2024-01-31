@@ -1,12 +1,7 @@
 public interface HasBed {
-    void raise(boolean raised);
+    void raise();
 
-    void lower(boolean raised);
-
-    boolean getRaised();
-
+    void lower();
 
 
 }
-
-//hej

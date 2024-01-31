@@ -1,21 +1,30 @@
 import java.awt.*;
 
-public class Truck extends Vehicle implements HasBed {
+public abstract class Truck extends Vehicle implements HasBed {
 
-    private Bed bed = new Bed();  // Composition
-    public boolean raised;
 
     public Truck(int nrDoors, double enginePower, Color color, String modelName) {
         super(nrDoors, enginePower, color, modelName);
     }
 
     protected double speedFactor() {
-        return getEnginePower() * 0.01; // Kanske ändra sen
+        return getEnginePower() * 0.01;
     }
 
-    public void setRaised(boolean raised){this.raised = raised;}
+//    public boolean isRaised() {
+//        return raised;
+//    }
+//
+//    public void setRaised(boolean raised) {
+//        this.raised = raised;
+//    }
 
-    public boolean getRaised(){return this.raised;}
+    public abstract void raise();
+
+    public abstract void lower();
+
+
 }
 
-//hej
+
+
