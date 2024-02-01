@@ -2,14 +2,13 @@ import java.awt.*;
 
 public class Scania extends Truck{
     private final ScaniaBed bed = new ScaniaBed();
-    //public int angle;
 
     public Scania(int nrDoors, double enginePower, Color color, String modelName) {
         super(nrDoors, enginePower, color, modelName);
     }
 
     @Override
-    public void raise() {
+    public void raise() {       // Exakt samma som i CarTransport, redundant
         if (this.getCurrentSpeed() == 0)
             bed.raise();
         else
@@ -17,7 +16,7 @@ public class Scania extends Truck{
     }
 
     @Override
-    public void lower() {
+    public void lower() {       // Exakt samma som i CarTransport, redundant
         if (this.getCurrentSpeed() == 0)
             bed.lower();
         else
@@ -50,4 +49,3 @@ public class Scania extends Truck{
     };
 }
 
-//hej

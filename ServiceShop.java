@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Stack;
 
 public class ServiceShop<T extends Car> implements Loadable<T> {
     private final List<T> storage = new ArrayList<>();  // Composition
@@ -24,5 +25,9 @@ public class ServiceShop<T extends Car> implements Loadable<T> {
         } else {
             throw new NoSuchElementException("Bilen finns inte i verkstaden.");
         }
+    }
+
+    public List<T> getStorage() {
+        return storage;
     }
 }

@@ -9,7 +9,7 @@ public class ScaniaBed {
 
 
     public void raise() {
-        if (this.angle <= 60) //och kolla att vinkel är större än
+        if (this.angle <= 60)
             this.angle += 10;
         else {
             this.angle = 70;
@@ -32,5 +32,5 @@ public class ScaniaBed {
             this.angle = angle;
         else
             throw new IllegalArgumentException("Angle must be between 0 and 70");
-    };
+    }
 }

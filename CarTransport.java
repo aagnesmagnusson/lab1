@@ -2,25 +2,27 @@ import java.awt.*;
 import java.util.Stack;
 
 public class CarTransport extends Truck implements Loadable<Car> {
-    private final CarTransportBed bed = new CarTransportBed();  // Kanske ha Bed
+    private final CarTransportBed bed = new CarTransportBed();
     private final Stack<Car> storage = new Stack<>();  // Composition
     public CarTransport(int nrDoors, double enginePower, Color color, String modelName) {
         super(nrDoors, enginePower, color, modelName);
     }
 
     @Override
-    public void raise() {
+    public void raise() {       // Exakt samma som i Scania, redundant
         if (this.getCurrentSpeed() == 0) {
-            bed.raise();
+            bed.raise();}
+        else
+            throw new IllegalStateException("Can't raise bed while moving.");
         }
-        // Ev. exception
-    }
+
 
     @Override
-    public void lower() {
+    public void lower() {       // Exakt samma som i Scania, redundant
         if (this.getCurrentSpeed() == 0) {
-            bed.lower();
-        }
+            bed.lower();}
+        else
+            throw new IllegalStateException("Can't lower bed while moving.");
     }
     @Override
     public void move(){
@@ -63,4 +65,11 @@ public class CarTransport extends Truck implements Loadable<Car> {
             super.gas(amount);
     };
 
+    public boolean getBedIsRaised() {
+        return bed.isRaised;
+    }
+
+    public Stack<Car> getStorage() {
+        return storage;
+    }
 }
