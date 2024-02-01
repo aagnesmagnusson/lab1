@@ -1,51 +1,47 @@
 import java.awt.*;
 
 public class Scania extends Truck{
-    private final ScaniaBed bed = new ScaniaBed();
+    private final ScaniaBed scaniaBed = new ScaniaBed();
 
     public Scania(int nrDoors, double enginePower, Color color, String modelName) {
         super(nrDoors, enginePower, color, modelName);
     }
 
     @Override
-    public void raise() {       // Exakt samma som i CarTransport, redundant
-        if (this.getCurrentSpeed() == 0)
-            bed.raise();
-        else
-            throw new IllegalStateException("Can't raise bed while moving.");
-    }
-
-    @Override
-    public void lower() {       // Exakt samma som i CarTransport, redundant
-        if (this.getCurrentSpeed() == 0)
-            bed.lower();
-        else
-            throw new IllegalStateException("Can't lower bed while moving.");
-    }
-    @Override
     public void move(){
-        if (bed.angle == 0)
+        if (scaniaBed.angle == 0)
             super.move();
         else
             throw new IllegalCallerException("Can't move when bed is raised");
     }
 
     public int getBedAngle() {
-        return bed.getAngle();
+        return scaniaBed.getAngle();
     }
 
     public void setBedAngle(int angle) {
         if (this.getCurrentSpeed() == 0)
-            bed.setAngle(angle);
+            scaniaBed.setAngle(angle);
 
     }
 
     @Override
     public void gas(double amount){
-        if (bed.angle > 0)
+        if (scaniaBed.angle > 0)
             throw new IllegalStateException("Can't gas when bed is raised.");
         else
             super.gas(amount);
     };
+
+    @Override
+    protected void raiseBed() {
+        scaniaBed.raise();
+    }
+
+
+    @Override
+    protected void lowerBed() {
+        scaniaBed.lower();
+    }
 }
 

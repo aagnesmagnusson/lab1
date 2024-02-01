@@ -31,3 +31,5 @@ public class ServiceShop<T extends Car> implements Loadable<T> {
         return storage;
     }
 }
+
+//ServiceShop<Saab95> shop = new ServiceShop<>();

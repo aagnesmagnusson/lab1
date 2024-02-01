@@ -11,9 +11,24 @@ public abstract class Truck extends Vehicle implements HasBed {
     }
 
 
-    public abstract void raise();
+    @Override
+    public void raise() {
+        if (this.getCurrentSpeed() == 0)
+            raiseBed();
+        else
+            throw new IllegalStateException("Can't raise bed while moving.");
+    }
 
-    public abstract void lower();
+    protected abstract void raiseBed();
+
+    public void lower() {
+        if (this.getCurrentSpeed() == 0) {
+            lowerBed();}
+        else
+            throw new IllegalStateException("Can't lower bed while moving.");
+    };
+
+    protected abstract void lowerBed();
 
 
 }
