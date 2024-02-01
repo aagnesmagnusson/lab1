@@ -11,7 +11,7 @@ public abstract class Truck extends Vehicle implements HasBed {
     }
 
 
-    @Override
+    //@Override
     public void raise() {
         if (this.getCurrentSpeed() == 0)
             raiseBed();
@@ -21,6 +21,7 @@ public abstract class Truck extends Vehicle implements HasBed {
 
     protected abstract void raiseBed();
 
+    //@Override
     public void lower() {
         if (this.getCurrentSpeed() == 0) {
             lowerBed();}
