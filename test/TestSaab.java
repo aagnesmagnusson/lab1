@@ -64,4 +64,5 @@ public class TestSaab {
         testSaab.brake(0.6);
         assertEquals(testSaab.getCurrentSpeed(), expectedSpeed);
     }
+
 }
