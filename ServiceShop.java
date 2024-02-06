@@ -27,7 +27,7 @@ public class ServiceShop<T extends Car> implements Loadable<T> {
         }
     }
 
-    public List<T> getStorage() {
+    protected List<T> getStorage() {
         return storage;
     }
 }

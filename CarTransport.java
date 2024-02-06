@@ -3,7 +3,7 @@ import java.util.Stack;
 
 public class CarTransport extends Truck implements Loadable<Car> {
     private final CarTransportBed transportbed = new CarTransportBed();
-    private final Stack<Car> storage = new Stack<>();  // Composition
+    private final Stack<Car> storage = new Stack<>();
     public CarTransport(int nrDoors, double enginePower, Color color, String modelName) {
         super(nrDoors, enginePower, color, modelName);
     }
@@ -11,7 +11,7 @@ public class CarTransport extends Truck implements Loadable<Car> {
 
     @Override
     public void move(){
-        if (transportbed.isRaised){
+        if (transportbed.getIsRaised()){
             super.move();
             if (!storage.isEmpty()){
                 for (Car car : storage) {
@@ -24,7 +24,7 @@ public class CarTransport extends Truck implements Loadable<Car> {
 
     public void load(Car car){
         double d = Math.sqrt(Math.pow(this.getXPos()-car.getXPos(),2) + Math.pow(this.getYPos()-car.getYPos(),2));
-        if (transportbed.isRaised && d <= 1)
+        if (transportbed.getIsRaised() && d <= 1)
             throw new IllegalCallerException("Can't load when ramp is raised");
         else
             storage.push(car);
@@ -32,7 +32,7 @@ public class CarTransport extends Truck implements Loadable<Car> {
 
     public Car unload() {
         Car outCar = null;
-        if (!storage.isEmpty() && !transportbed.isRaised) {
+        if (!storage.isEmpty() && !transportbed.getIsRaised()) {
             outCar = storage.pop();
             double xOffset = -1 * Math.cos(this.getDirection());
             double yOffset = -1 * Math.sin(this.getDirection());
@@ -44,17 +44,17 @@ public class CarTransport extends Truck implements Loadable<Car> {
 
     @Override
     public void gas(double amount){
-        if (!transportbed.isRaised)
+        if (!transportbed.getIsRaised())
             throw new IllegalStateException("Can't gas when ramp is down.");
         else
             super.gas(amount);
     };
 
-    public boolean getBedIsRaised() {
-        return transportbed.isRaised;
+    protected boolean getBedIsRaised() {
+        return transportbed.getIsRaised();
     }
 
-    public Stack<Car> getStorage() {
+    protected Stack<Car> getStorage() {
         return storage;
     }
 

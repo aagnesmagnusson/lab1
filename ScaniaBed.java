@@ -1,18 +1,18 @@
 public class ScaniaBed {
 
-    public int angle = 0;
+    private int angle = 0;
 
 
-    public void raise() {
+    protected void raise() {
         if (this.angle <= 60)
-            this.angle += 10;
+            this.angle  += 10;
         else {
             this.angle = 70;
         }
     }
 
 
-    public void lower() {
+    protected void lower() {
         if (this.angle >= 10)
             this.angle -= 10;
         else {
@@ -20,9 +20,9 @@ public class ScaniaBed {
         }
     }
 
-    public int getAngle(){return this.angle;}
+    protected int getAngle(){return this.angle;}
 
-    public void setAngle(int angle){
+    protected void setAngle(int angle){
         if (angle >= 0 && angle <= 70)
             this.angle = angle;
         else

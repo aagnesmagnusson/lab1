@@ -2,16 +2,15 @@ import java.awt.*;
 
 public class CarTransportBed{
 
-    public boolean isRaised;
+    private boolean isRaised;
 
-    public void raise() {
+    protected void raise() {
         this.isRaised = true;
     }
 
-    public void lower() {
+    protected void lower() {
         this.isRaised = false;
     }
 
-    public boolean getIsRaised(){return this.isRaised;}
-
+    protected boolean getIsRaised(){return this.isRaised;}
 }

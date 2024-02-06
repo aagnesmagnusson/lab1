@@ -9,25 +9,25 @@ public class Scania extends Truck{
 
     @Override
     public void move(){
-        if (scaniaBed.angle == 0)
+        if (scaniaBed.getAngle() == 0)
             super.move();
         else
             throw new IllegalCallerException("Can't move when bed is raised");
     }
 
-    public int getBedAngle() {
+    protected int getBedAngle() {
         return scaniaBed.getAngle();
     }
 
-    public void setBedAngle(int angle) {
+    protected void setBedAngle(int angle) {
         if (this.getCurrentSpeed() == 0)
             scaniaBed.setAngle(angle);
 
     }
 
     @Override
-    public void gas(double amount){
-        if (scaniaBed.angle > 0)
+    protected void gas(double amount){
+        if (scaniaBed.getAngle() > 0)
             throw new IllegalStateException("Can't gas when bed is raised.");
         else
             super.gas(amount);
