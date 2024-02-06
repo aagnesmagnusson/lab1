@@ -1,11 +1,6 @@
 public class ScaniaBed {
 
-    public int angle;
-
-    public ScaniaBed() {
-        super();
-        this.angle = 0;
-    }
+    public int angle = 0;
 
 
     public void raise() {
