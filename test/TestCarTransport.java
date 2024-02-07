@@ -34,7 +34,7 @@ public class TestCarTransport {
         carTransport.stopEngine();
         carTransport.lower();
         carTransport.load(volvoCar);
-        assertEquals(carTransport.getStorage().pop(), volvoCar);
+        assertEquals(carTransport.getTransportBed().getStorage().pop(), volvoCar);
     }
 
     @Test
@@ -43,7 +43,7 @@ public class TestCarTransport {
         carTransport.lower();
         carTransport.load(volvoCar);
         carTransport.unload();
-        assertTrue(carTransport.getStorage().isEmpty());
+        assertTrue(carTransport.getTransportBed().getStorage().isEmpty());
     }
 
 }

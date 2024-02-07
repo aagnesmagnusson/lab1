@@ -12,7 +12,7 @@ public class Scania extends Truck{
         if (scaniaBed.getAngle() == 0)
             super.move();
         else
-            throw new IllegalCallerException("Can't move when bed is raised");
+            throw new IllegalStateException("Can't move when bed is raised");
     }
 
     protected int getBedAngle() {
